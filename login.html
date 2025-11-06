@@ -2,108 +2,163 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Dentodesk</title>
-  <link rel="stylesheet" href="login.css">
   <style>
     /* ========== ESTILOS LOGIN - CLÍNICA DENTAL CELESTE ========== */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e6f7fb, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #e6f7fb, #ffffff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
+    /* Caja principal */
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
 
-/* Caja principal */
-.login-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  width: 350px;
-  text-align: center;
-}
+    h1 {
+      color: #33A9E0;
+      margin-bottom: 0.5rem;
+    }
 
-h1 {
-  color: #33A9E0;
-  margin-bottom: 0.5rem;
-}
+    .subtitulo {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
 
-.subtitulo {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
+    /* Tabs */
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 1.5rem;
+    }
 
-/* Tabs */
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1.5rem;
-}
+    .tabs button {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: #f0f8fb;
+      color: #333;
+      transition: all 0.3s ease;
+    }
 
-.tabs button {
-  flex: 1;
-  padding: 0.5rem;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  background: #f0f8fb;
-  color: #333;
-  transition: all 0.3s ease;
-}
+    .tabs button.active {
+      background: #33A9E0;
+      color: white;
+      border-radius: 6px;
+    }
 
-.tabs button.active {
-  background: #33A9E0;
-  color: white;
-  border-radius: 6px;
-}
+    /* Formularios */
+    .form {
+      display: none;
+      text-align: left;
+    }
 
-/* Formularios */
-.form {
-  display: none;
-  text-align: left;
-}
+    .form.active {
+      display: block;
+    }
 
-.form.active {
-  display: block;
-}
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      color: #333;
+      font-weight: 600;
+    }
 
-label {
-  display: block;
-  margin: 0.5rem 0 0.2rem;
-  color: #333;
-  font-weight: 600;
-}
+    input {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+    }
 
-input {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-}
+    /* Botón principal */
+    .btn {
+      background: #33A9E0;
+      color: white;
+      border: none;
+      padding: 0.7rem;
+      width: 100%;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-/* Botón principal */
-.btn {
-  background: #33A9E0;
-  color: white;
-  border: none;
-  padding: 0.7rem;
-  width: 100%;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+    .btn:hover {
+      background: #2893c5;
+    }
 
-.btn:hover {
-  background: #2893c5;
-}
+    .btn-secondary {
+      background: #f0f8fb;
+      color: #33A9E0;
+      border: 1px solid #33A9E0;
+    }
 
+    .btn-secondary:hover {
+      background: #e0f0f7;
+    }
+
+    .info-message {
+      background-color: #e6f7fb;
+      border: 1px solid #33A9E0;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .error-message {
+      background-color: #ffe6e6;
+      border: 1px solid #ff3333;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #cc0000;
+    }
+
+    .success-message {
+      background-color: #e6ffe6;
+      border: 1px solid #33cc33;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #006600;
+    }
+
+    .form-footer {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .form-footer a {
+      color: #33A9E0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -120,96 +175,322 @@ input {
 
     <!-- FORMULARIO DE LOGIN -->
     <form id="formLogin" class="form active">
+      <div class="info-message">
+        Sistema seguro de historias clínicas dentales
+      </div>
+      
       <label>DNI</label>
       <input type="text" id="loginDni" placeholder="Ingresa tu DNI">
 
       <label>Contraseña</label>
       <input type="password" id="loginPassword" placeholder="Contraseña">
 
+      <div class="form-footer">
+        <a id="forgotPasswordLink">¿Olvidaste tu contraseña?</a>
+      </div>
+
       <button type="submit" class="btn">Ingresar</button>
     </form>
 
     <!-- FORMULARIO DE REGISTRO -->
     <form id="formRegister" class="form">
+      <div class="info-message">
+        Para registrarse, necesitará verificar su correo electrónico
+      </div>
+      
       <label>DNI</label>
       <input type="text" id="regDni" placeholder="DNI del paciente">
 
       <label>Nombre completo</label>
       <input type="text" id="regNombre" placeholder="Nombre completo">
 
+      <label>Correo electrónico</label>
+      <input type="email" id="regEmail" placeholder="Correo electrónico">
+
       <label>Contraseña</label>
-      <input type="password" id="regPassword" placeholder="Contraseña">
+      <input type="password" id="regPassword" placeholder="Contraseña (mín. 8 caracteres)">
 
       <button type="submit" class="btn">Registrar</button>
+    </form>
+
+    <!-- FORMULARIO DE RECUPERACIÓN DE CONTRASEÑA -->
+    <form id="formForgotPassword" class="form">
+      <div class="info-message">
+        Se enviará un código de verificación a su correo electrónico registrado
+      </div>
+      
+      <label>DNI</label>
+      <input type="text" id="forgotDni" placeholder="Ingresa tu DNI">
+
+      <button type="submit" class="btn">Enviar código</button>
+      <button type="button" id="backToLogin" class="btn btn-secondary">Volver al inicio de sesión</button>
+    </form>
+
+    <!-- FORMULARIO DE VERIFICACIÓN DE CÓDIGO -->
+    <form id="formVerifyCode" class="form">
+      <div class="info-message">
+        Ingrese el código de verificación enviado a su correo electrónico
+      </div>
+      
+      <label>Código de verificación</label>
+      <input type="text" id="verificationCode" placeholder="Código de 6 dígitos">
+
+      <label>Nueva contraseña</label>
+      <input type="password" id="newPassword" placeholder="Nueva contraseña">
+
+      <button type="submit" class="btn">Restablecer contraseña</button>
+      <button type="button" id="backToForgot" class="btn btn-secondary">Volver</button>
     </form>
   </div>
 
   <script>
-    /* ================= TAB SWITCH ================= */
-    const tabLogin = document.getElementById("tabLogin");
-    const tabRegister = document.getElementById("tabRegister");
-    const formLogin = document.getElementById("formLogin");
-    const formRegister = document.getElementById("formRegister");
+  // ================= UTILIDADES DE SEGURIDAD =================
+  
+  // Generar un código de verificación de 6 dígitos
+  function generateVerificationCode() {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  }
 
-    tabLogin.addEventListener("click", () => {
-      tabLogin.classList.add("active");
-      tabRegister.classList.remove("active");
-      formLogin.classList.add("active");
-      formRegister.classList.remove("active");
-    });
+  // Simular envío de correo de verificación (al propio usuario)
+  function sendVerificationEmail(email, code) {
+    console.log(`Simulando envío de código ${code} al correo: ${email}`);
+    alert(`Se ha enviado un código de verificación a ${email}. Código de prueba: ${code}`);
+  }
 
-    tabRegister.addEventListener("click", () => {
-      tabRegister.classList.add("active");
-      tabLogin.classList.remove("active");
-      formRegister.classList.add("active");
-      formLogin.classList.remove("active");
-    });
+  // Enviar solicitud de acceso al administrador (Dentodesk)
+  function sendAccessRequestToAdmin(nombre, dni, email) {
+    const adminEmail = "jhongam2418y@gmail.com";
+    const subject = encodeURIComponent("Nueva solicitud de acceso a Dentodesk");
+    const body = encodeURIComponent(
+      `Hola administrador,\n\n` +
+      `Un nuevo usuario ha solicitado acceso al sistema Dentodesk:\n\n` +
+      `👤 Nombre: ${nombre}\n` +
+      `🆔 DNI: ${dni}\n` +
+      `📧 Correo: ${email}\n\n` +
+      `Por favor, revise si desea aprobar o rechazar esta solicitud.\n\n` +
+      `-- Sistema Dentodesk`
+    );
+    window.open(`mailto:${adminEmail}?subject=${subject}&body=${body}`);
+  }
 
-    /* ================= REGISTRAR PACIENTE ================= */
-    formRegister.addEventListener("submit", e => {
-      e.preventDefault();
-      const dni = document.getElementById("regDni").value;
-      const nombre = document.getElementById("regNombre").value;
-      const password = document.getElementById("regPassword").value;
+  // Encriptar contraseñas (simulación)
+  function hashPassword(password) {
+    return btoa(password);
+  }
 
-      if (!dni || !nombre || !password) {
-        alert("Completa todos los campos");
-        return;
-      }
+  // Verificar contraseñas (simulación)
+  function verifyPassword(password, hashedPassword) {
+    return btoa(password) === hashedPassword;
+  }
 
-      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
-      if (usuarios[dni]) {
-        alert("Ese DNI ya está registrado");
-        return;
-      }
+  // ================= GESTIÓN DE FORMULARIOS =================
+  const tabLogin = document.getElementById("tabLogin");
+  const tabRegister = document.getElementById("tabRegister");
+  const formLogin = document.getElementById("formLogin");
+  const formRegister = document.getElementById("formRegister");
+  const formForgotPassword = document.getElementById("formForgotPassword");
+  const formVerifyCode = document.getElementById("formVerifyCode");
+  const forgotPasswordLink = document.getElementById("forgotPasswordLink");
+  const backToLogin = document.getElementById("backToLogin");
+  const backToForgot = document.getElementById("backToForgot");
 
-      usuarios[dni] = { nombre, password };
-      localStorage.setItem("usuarios", JSON.stringify(usuarios));
-      alert("Paciente registrado correctamente ✅");
+  // Cambiar entre formularios
+  function showForm(formToShow) {
+    formLogin.classList.remove("active");
+    formRegister.classList.remove("active");
+    formForgotPassword.classList.remove("active");
+    formVerifyCode.classList.remove("active");
+    formToShow.classList.add("active");
+  }
 
-      // Cambiar automáticamente al login
-      tabLogin.click();
-    });
+  tabLogin.addEventListener("click", () => {
+    tabLogin.classList.add("active");
+    tabRegister.classList.remove("active");
+    showForm(formLogin);
+  });
 
-    /* ================= INICIAR SESIÓN ================= */
-    formLogin.addEventListener("submit", e => {
-      e.preventDefault();
-      const dni = document.getElementById("loginDni").value;
-      const password = document.getElementById("loginPassword").value;
+  tabRegister.addEventListener("click", () => {
+    tabRegister.classList.add("active");
+    tabLogin.classList.remove("active");
+    showForm(formRegister);
+  });
 
-      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+  forgotPasswordLink.addEventListener("click", () => {
+    showForm(formForgotPassword);
+  });
 
-      
+  backToLogin.addEventListener("click", () => {
+    showForm(formLogin);
+  });
 
-      if (usuarios[dni] && usuarios[dni].password === password) {
-      localStorage.setItem("usuarioActivo", dni);
-      window.location.href = "index.html"; // ← CAMBIA ESTA LÍNEA
-      } else {
+  backToForgot.addEventListener("click", () => {
+    showForm(formForgotPassword);
+  });
+
+  // ================= REGISTRAR PACIENTE =================
+  formRegister.addEventListener("submit", e => {
+    e.preventDefault();
+    const dni = document.getElementById("regDni").value;
+    const nombre = document.getElementById("regNombre").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPassword").value;
+
+    // Validaciones
+    if (!dni || !nombre || !email || !password) {
+      alert("Completa todos los campos");
+      return;
+    }
+
+    if (password.length < 8) {
+      alert("La contraseña debe tener al menos 8 caracteres");
+      return;
+    }
+
+    // Verificar si el DNI ya está registrado
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+    if (usuarios[dni]) {
+      alert("Ese DNI ya está registrado");
+      return;
+    }
+
+    // Generar código de verificación
+    const verificationCode = generateVerificationCode();
+    
+    // Guardar datos temporales
+    let pendingRegistrations = JSON.parse(localStorage.getItem("pendingRegistrations")) || {};
+    pendingRegistrations[dni] = {
+      nombre,
+      email,
+      password: hashPassword(password),
+      verificationCode,
+      timestamp: Date.now()
+    };
+    localStorage.setItem("pendingRegistrations", JSON.stringify(pendingRegistrations));
+
+    // Enviar correo al propio usuario
+    sendVerificationEmail(email, verificationCode);
+
+    // Enviar solicitud de acceso al administrador
+    sendAccessRequestToAdmin(nombre, dni, email);
+
+    // Aviso visual
+    alert(`Se ha enviado una solicitud de acceso a Dentodesk.\nEl administrador revisará tu solicitud y recibirás un correo con el código de verificación en ${email}.`);
+
+    // Cambiar automáticamente al login
+    tabLogin.click();
+  });
+
+  // ================= INICIAR SESIÓN =================
+  formLogin.addEventListener("submit", e => {
+    e.preventDefault();
+    const dni = document.getElementById("loginDni").value;
+    const password = document.getElementById("loginPassword").value;
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+
+    if (usuarios[dni] && verifyPassword(password, usuarios[dni].password)) {
+      const sessionData = { dni, timestamp: Date.now() };
+      localStorage.setItem("usuarioActivo", JSON.stringify(sessionData));
+      window.location.href = "index.html";
+    } else {
       alert("DNI o contraseña incorrectos ❌");
-      }  
+    }
+  });
 
-    });
-  </script>
+  // ================= RECUPERAR CONTRASEÑA =================
+  formForgotPassword.addEventListener("submit", e => {
+    e.preventDefault();
+    const dni = document.getElementById("forgotDni").value;
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+
+    if (!usuarios[dni]) {
+      alert("No se encontró una cuenta asociada a este DNI");
+      return;
+    }
+
+    const verificationCode = generateVerificationCode();
+    let passwordResets = JSON.parse(localStorage.getItem("passwordResets")) || {};
+    passwordResets[dni] = { verificationCode, timestamp: Date.now() };
+    localStorage.setItem("passwordResets", JSON.stringify(passwordResets));
+
+    sendVerificationEmail(usuarios[dni].email, verificationCode);
+    showForm(formVerifyCode);
+  });
+
+  // ================= VERIFICAR CÓDIGO Y CAMBIAR CONTRASEÑA =================
+  formVerifyCode.addEventListener("submit", e => {
+    e.preventDefault();
+    const dni = document.getElementById("forgotDni").value;
+    const code = document.getElementById("verificationCode").value;
+    const newPassword = document.getElementById("newPassword").value;
+
+    let passwordResets = JSON.parse(localStorage.getItem("passwordResets")) || {};
+    const resetData = passwordResets[dni];
+
+    if (!resetData || resetData.verificationCode !== code) {
+      alert("Código de verificación incorrecto");
+      return;
+    }
+
+    const now = Date.now();
+    if (now - resetData.timestamp > 15 * 60 * 1000) {
+      alert("El código ha expirado. Solicite uno nuevo.");
+      delete passwordResets[dni];
+      localStorage.setItem("passwordResets", JSON.stringify(passwordResets));
+      showForm(formForgotPassword);
+      return;
+    }
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+    if (usuarios[dni]) {
+      usuarios[dni].password = hashPassword(newPassword);
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+      delete passwordResets[dni];
+      localStorage.setItem("passwordResets", JSON.stringify(passwordResets));
+      alert("Contraseña actualizada correctamente ✅");
+      showForm(formLogin);
+    } else {
+      alert("Error al actualizar la contraseña");
+    }
+  });
+
+  // ================= COMPLETAR REGISTRO =================
+  function completeRegistration(dni, code) {
+    let pendingRegistrations = JSON.parse(localStorage.getItem("pendingRegistrations")) || {};
+    const pendingData = pendingRegistrations[dni];
+
+    if (!pendingData || pendingData.verificationCode !== code) {
+      alert("Código de verificación incorrecto");
+      return false;
+    }
+
+    const now = Date.now();
+    if (now - pendingData.timestamp > 24 * 60 * 60 * 1000) {
+      alert("El registro ha expirado. Regístrese nuevamente.");
+      delete pendingRegistrations[dni];
+      localStorage.setItem("pendingRegistrations", JSON.stringify(pendingRegistrations));
+      return false;
+    }
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+    usuarios[dni] = {
+      nombre: pendingData.nombre,
+      email: pendingData.email,
+      password: pendingData.password,
+      role: "paciente"
+    };
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    delete pendingRegistrations[dni];
+    localStorage.setItem("pendingRegistrations", JSON.stringify(pendingRegistrations));
+
+    alert("Registro completado correctamente ✅");
+    return true;
+  }
+
+  window.completeRegistration = completeRegistration;
+</script>
+
 </body>
 </html>
+
 
