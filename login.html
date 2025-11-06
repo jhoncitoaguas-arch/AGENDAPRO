@@ -199,13 +199,17 @@ input {
 
       let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
 
+      
+
       if (usuarios[dni] && usuarios[dni].password === password) {
-        localStorage.setItem("usuarioActivo", dni);
-        window.location.href = "index.html"; // Ir a la agenda
+      localStorage.setItem("usuarioActivo", dni);
+      window.location.href = "index.html"; // ← CAMBIA ESTA LÍNEA
       } else {
-        alert("DNI o contraseña incorrectos ❌");
-      }
+      alert("DNI o contraseña incorrectos ❌");
+      }  
+
     });
   </script>
 </body>
 </html>
+
