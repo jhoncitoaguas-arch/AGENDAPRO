@@ -508,6 +508,52 @@
     window.completeRegistration = completeRegistration;
 
 
+    /* ================= TAB SWITCH ================= */
+    const tabLogin = document.getElementById("tabLogin");
+    const tabRegister = document.getElementById("tabRegister");
+    const formLogin = document.getElementById("formLogin");
+    const formRegister = document.getElementById("formRegister");
+
+    tabLogin.addEventListener("click", () => {
+      tabLogin.classList.add("active");
+      tabRegister.classList.remove("active");
+      formLogin.classList.add("active");
+      formRegister.classList.remove("active");
+    });
+
+    tabRegister.addEventListener("click", () => {
+      tabRegister.classList.add("active");
+      tabLogin.classList.remove("active");
+      formRegister.classList.add("active");
+      formLogin.classList.remove("active");
+    });
+
+    /* ================= REGISTRAR PACIENTE ================= */
+    formRegister.addEventListener("submit", e => {
+      e.preventDefault();
+      const dni = document.getElementById("regDni").value;
+      const nombre = document.getElementById("regNombre").value;
+      const password = document.getElementById("regPassword").value;
+
+      if (!dni || !nombre || !password) {
+        alert("Completa todos los campos");
+        return;
+      }
+
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+      if (usuarios[dni]) {
+        alert("Ese DNI ya está registrado");
+        return;
+      }
+
+      usuarios[dni] = { nombre, password };
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+      alert("Paciente registrado correctamente ✅");
+
+      // Cambiar automáticamente al login
+      tabLogin.click();
+    });
+
     /* ================= INICIAR SESIÓN ================= */
     formLogin.addEventListener("submit", e => {
       e.preventDefault();
@@ -527,3 +573,4 @@
   </script>
 </body>
 </html>
+
